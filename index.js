@@ -1,16 +1,12 @@
-var fioRegexp = /[^a-zA-zа-яА-Я --']/;
-var emailRegexp = /[0-9]@(ya.ru|yandex.ru|yandex.ua|yandex.by|yandex.kz|yandex.com)$/;
-var phoneRegexp = /\+7\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}$/;
+var fioRegexp = /[a-zA-zа-яА-Я \-']+$/;
+var emailRegexp = /[0-9A-Za-z]{2,}@ya.ru|yandex.ru|yandex.ua|yandex.by|yandex.kz|yandex.com$/
+var phoneRegexp = /^\+7\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}$/
 
 
 function validate(data) {
 
     var isValid = true;
     var error = new Array();
-
-    console.log(data.fio.match(fioRegexp) + " " + data.fio);
-    console.log(data.email.match(emailRegexp));
-    console.log(data.phone.match(phoneRegexp));
 
     if (data.fio.split(' ').length != 3 || data.fio.match(fioRegexp) != null) {
         isValid = false;
@@ -26,6 +22,12 @@ function validate(data) {
         isValid = false;
         error[error.length] = "phoneInput";
     }
+
+
+    console.log(data.fio.match(fioRegexp) + " " + data.fio);
+    console.log(data.email.match(emailRegexp));
+    console.log(data.phone.match(phoneRegexp));
+
 
     return {
         isValid: isValid,
