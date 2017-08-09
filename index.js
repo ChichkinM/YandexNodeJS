@@ -1,6 +1,31 @@
+var fioRegexp = /[^a-zA-zа-яА-Я --']/;
+var emailRegexp = /[0-9]@(ya.ru|yandex.ru|yandex.ua|yandex.by|yandex.kz|yandex.com)$/;
+var phoneRegexp = /\+7\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}$/;
+
+
 function validate(data) {
+
     var isValid = true;
-    var error = ["emailInput", "error"];
+    var error = new Array();
+
+    console.log(data.fio.match(fioRegexp) + " " + data.fio);
+    console.log(data.email.match(emailRegexp));
+    console.log(data.phone.match(phoneRegexp));
+
+    if (data.fio.split(' ').length != 3 || data.fio.match(fioRegexp) != null) {
+        isValid = false;
+        error[error.length] = "fioInput";
+    }
+
+    if (data.email.match(emailRegexp) == null) {
+        isValid = false;
+        error[error.length] = "emailInput";
+    }
+
+    if (data.phone.match(phoneRegexp) == null) {
+        isValid = false;
+        error[error.length] = "phoneInput";
+    }
 
     return {
         isValid: isValid,
@@ -10,9 +35,9 @@ function validate(data) {
 
 function getData() {
     var data = new Object();
-    data.fio = document.getElementById("fioInput").value;
-    data.email = document.getElementById("emailInput").value;
-    data.phone = document.getElementById("phoneInput").value;
+    data.fio = document.getElementById("fioInput").value.trim();
+    data.email = document.getElementById("emailInput").value.trim();
+    data.phone = document.getElementById("phoneInput").value.trim();
 
     return data;
 }
@@ -31,7 +56,7 @@ function submit() {
     if (!validateResult.isValid)
         validateResult.errorFields.forEach(function (field, errorFields) {
             //FIXME будет не корректное поведение при повторных ошибочных попытках
-            document.getElementById(field).className += "error";
+            document.getElementById(field).className += " error";
         });
     else {
 
