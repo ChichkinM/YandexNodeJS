@@ -1,0 +1,43 @@
+@import "resources/css/bootstrap.css";
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 550px;
+}
+td {
+    padding: 5px;
+    text-align: right;
+}
+td.info {
+    text-align: center;
+    font-size: 16px;
+}
+td.text-info {
+    text-align: center;
+    font-size: 40px;
+}
+input.input-lg {
+    font-size: 20px;
+    width: 300px;
+}
+button.btn {
+    height:60px;
+    width: 150px;
+    font-size: 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+
+input.error {
+    border: 1px solid red;
+}
+div.success { }
+div.error { }
+div.progress {
+    height: 0px;
+    width: 0px;
+}

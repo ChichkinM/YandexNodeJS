@@ -1,44 +1,9 @@
 <!DOCTYPE html>
 
-<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.css">
-<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
-<script src="resources/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-<script src="resources/jquery-3.2.1.js"></script>
+<link rel="stylesheet" href="index.css"/>
+<script src="resources/js/jquery-3.2.1.min.js"></script>
+<script src="resources/js/bootstrap.js"></script>
 <script src="index.js"></script>
-
-
-<style>
-    table {
-        width: 520px;
-    }
-    td {
-        padding: 5px;
-        font-size: 16px;
-    }
-    button {
-        height:60px;
-        width: 150px;
-    }
-    input {
-        width: 300px;
-    }
-    h1 {
-        font-size: 40px;
-        padding-bottom: 20px;
-    }
-    input.error {
-        border: 1px solid red;
-    }
-    div {
-        font-size: 40px;
-    }
-    div.success { }
-    div.progress {
-        height: 0px;
-        width: 0px;
-    }
-    div.error { }
-</style>
 
 
 <html id="myForm" lang="ru">
@@ -49,27 +14,27 @@
 </head>
 
 <body>
-    <h1 align="center">Введите данные</h1>
-    <table align="center">
+    <h1>Введите данные</h1>
+    <table>
         <tr>
-            <td align="center">Фамилия, Имя, Отчество</td>
-            <td align="right"><input id="fioInput" name="fio" class="input-lg" style="font-size: 20px;" placeholder="Иванов Иван Иванович"></td>
+            <td class="info">Фамилия, Имя, Отчество</td>
+            <td class="input"><input id="fioInput" name="fio" class="input-lg" placeholder="Иванов Иван Иванович"></td>
         </tr>
         <tr>
-            <td align="center">Адрес электронной почты</td>
-            <td align="right"> <input id="emailInput" name="email" class="input-lg" style="font-size: 20px;" placeholder="Ivanov@yandex.ru"></td>
+            <td class="info">Адрес электронной почты</td>
+            <td class="input"> <input id="emailInput" name="email" class="input-lg" placeholder="Ivanov@yandex.ru"></td>
         </tr>
         <tr>
-            <td align="center">Номер телефона</td>
-            <td align="right"><input id="phoneInput" name="phone" class="input-lg" style="font-size: 20px;" placeholder="+7(111)222-33-11"></td>
+            <td class="info">Номер телефона</td>
+            <td class="input"><input id="phoneInput" name="phone" class="input-lg" placeholder="+7(111)222-33-11"></td>
         </tr>
     </table>
 
-    <table align="center">
+    <table>
         <tr>
             <!--TODO перенести в div класс для текста, но тогда добавлять класс на основании ответа надо будет похитрее-->
-            <td align="center" class="text-info"><div id="resultContainer"></div></td>
-            <td colspan="2" align="right"><button id="submitButton" class="btn" style="font-size: 20px;" onclick="submit()">Отправить</button></td>
+            <td class="text-info"><div id="resultContainer"></div></td>
+            <td class="input"><button id="submitButton" class="btn" onclick="submit()">Отправить</button></td>
         </tr>
     </table>
 </body>
